@@ -1,0 +1,61 @@
+//create csv file
+touch pqr.csv 
+
+//open file to edit it
+vi pqr.csv
+
+//view the data in csv file
+more pqr.csv
+
+less pqr.csv
+
+//search "Engineering" in csv file
+grep 'Engineering' pqr.csv
+
+//display 5 rows in up to bottom in csv file
+ head -5 pqr.csv
+
+//display 3 rows in bottom to up in csv file
+tail -3 pqr.csv
+
+//display
+awk -F, '{print NF;exist}' pqr.csv
+
+//display number of columns
+awk -F, '{print NF;exit}' pqr.csv
+
+//display only age
+awk -F, '{print $3}' pqr.csv
+
+//display 7th row 
+head -n7 pqr.csv | tail -n1
+
+//display last 3 rows in csv file
+tail -3 pqr.csv
+
+//display salary
+cut -d, -f4 pqr.csv
+awk -F, '{print $4}' pqr.csv
+
+//display 2nd and 3rd columns
+awk -F, '{print $2 "," $3}' pqr.csv
+
+//display 2nd and 3rd columns and save a new file
+awk -F, '{print $2 "," $3}' pqr.csv > pqr2.csv
+more pqr2.csv
+
+
+//display sort the salary 
+awk -F, '{print $4}' pqr.csv | sort
+
+//sort the all csv data and display it
+sort -t',' -k4,4n pqr.csv
+
+//display the order of the age (max to min)
+sort -t',' -k3,3nr pqr.csv
+
+//display the order of the salary(max to min)
+sort -t',' -k4,4 -r pqr.csv
+
+//display the 2nd and 4th columns sort by alperbaticaly order
+sort -t',' -k2,2 | sort -t',' -k4,4 -r pqr.csv
