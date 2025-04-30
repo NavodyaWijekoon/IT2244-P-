@@ -1,0 +1,55 @@
+cal  //get the calendar
+
+date +%d  //get only the date from current date
+
+date +%y //get only the current year in 2 digits from current date
+
+date +%Y  //get only the current year from current date 
+
+date +%a //get the dayname in 3 letters from current date
+
+date +%A //get the full day name from current date
+
+date +%D //get the current date(mm/dd/yy)
+
+date +%m //get only the month of current date
+
+date +%M //get the minutes of the current time
+
+date +%t
+
+date +%T //get the current time
+
+date +%H //get the hour of current time
+
+date +%h //get the current date month in name.
+
+
+touch prgrm1.sh  //create prgrm1.sh file
+
+vi prgrm1.sh //edit the prgrm1.sh file
+
+//press 'i' key
+//insert these in prgrm1.sh
+echo "Navo"
+read name
+echo "Hi "$name
+echo "Number 1"
+read x
+echo "Number 2"
+read y
+sum=$(($x+$y))
+sub=$(($x-$y))
+mul=$(($x*$y))
+div=$(($x/$y))
+echo "Summation "$sum
+echo "Subtraction "$sub
+echo "Multiplication "$mul
+echo "Division "$div
+
+//ctrl+c
+//wq!
+
+chmod 777 prgrm1.sh //set the permission
+
+./prgrm1.sh //Read the prgrm1.sh file
