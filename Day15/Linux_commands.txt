@@ -1,0 +1,139 @@
+Fork Activity
+
+Code:-
+
+		#include <stdio.h>
+		#include <unistd.h>
+		int main()
+		{
+			printf("\n---A Process---\n");
+			printf("\nI'm A.My ID %d\n",getpid());
+
+
+			int n1;
+			printf("Enter first number: ");
+			scanf("%d", &n1);
+			int n2;
+			printf("Enter second number: ");
+			scanf("%d", &n2);
+			int n3;
+			printf("Enter third number: ");
+			scanf("%d", &n3);
+			
+			int p=getpid();
+			int f=fork();
+			
+			if(f>0)
+			{
+				printf("\n---B Process---\n");
+				printf("\nI'm B.My ID %d\n",getpid());
+				
+				int number = n1;
+				int factorial = 1;
+
+					if (number < 0) {
+						printf("It is a negative number\n");
+					} 
+					else 
+					{
+						for (int i = 1; i <= number; i++) {
+							factorial *= i;
+						}
+						printf("Factorial of %d is: %d\n", number, factorial);
+					}
+			}
+			else if(f==0)
+			{
+				printf("\n---C Process---\n");
+				printf("\nI'm C.My ID %d\n",getpid());
+				
+				int i, first = 0, second = 1, next;
+
+				if (n2 <= 0)
+				{
+					printf("Please enter a positive number.\n");
+					return 1;
+				}
+
+				printf("Fibonacci series: ");
+
+				for (i = 1; i <= n2; i++) 
+				{
+					if (i == 1) 
+					{
+						printf("%d ", first);
+						continue;
+					}
+					if (i == 2) 
+					{
+						printf("%d ", second);
+						continue;
+					}
+					next = first + second;
+					first = second;
+					second = next;
+					printf("%d ", next);
+				}
+				printf("\n");
+
+				int f1=fork();
+				if(f1==0)
+				{
+					printf("\n---D Process---\n");
+					printf("\nI'm C.My ID %d\n",getpid());
+					
+					int i, isPrime = 1;
+
+					if (n1 <= 1) 
+						isPrime = 0;
+
+					for (i = 2; i * i <= n1; i++) 
+					{
+						if (n1 % i == 0) 
+						{
+							isPrime = 0;
+							break;
+						}
+					}
+
+					if (isPrime)
+					{
+						printf("%d is prime\n", n1);
+					}
+					else
+					{
+						printf("%d is NOT prime\n", n1);
+					}
+				}	
+			}
+			return 0;
+		}
+		
+Output:-			
+		[2021ict62@fedora ~]$ touch ForkAct.c
+		[2021ict62@fedora ~]$ vi ForkAct.c
+		[2021ict62@fedora ~]$ gcc ForkAct.c -o ForkAct
+		[2021ict62@fedora ~]$ ./ForkAct
+
+		---A Process---
+
+		I'm A.My ID 21280
+		Enter first number: 1
+		Enter second number: 2
+		Enter third number: 3
+
+		---B Process---
+
+		I'm B.My ID 21280
+		Factorial of 1 is: 1
+
+		---C Process---
+
+		I'm C.My ID 21282
+		Fibonacci series: 0 1
+
+		---D Process---
+
+		I'm C.My ID 21283
+		1 is NOT prime
+
