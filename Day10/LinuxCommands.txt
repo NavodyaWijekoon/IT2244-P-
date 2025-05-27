@@ -1,0 +1,20 @@
+Code:-
+		echo "Enter the word: "
+		read word
+
+		reverse=$(echo "$word" | rev)
+
+		if [ "$word" == "$reverse" ]; then
+			echo "It's a Palindrome."
+		else
+			echo "Not a Palindrome."
+		fi
+
+Output:-
+		[2021ict62@fedora ~]$ touch palindrome.sh
+		[2021ict62@fedora ~]$ vi palindrome.sh
+		[2021ict62@fedora ~]$ chmod 777 palindrome.sh
+		[2021ict62@fedora ~]$ ./palindrome.sh
+		Enter the word:
+		amma
+		It's a Palindrome.
