@@ -1,0 +1,49 @@
+Find pid-Example
+
+Code:-		
+		#include <stdio.h>
+		#include <unistd.h>
+		int main()
+		{
+			int p=getpid();
+			int f=fork();//Copeing process two times
+			if(f==0)
+			{
+				printf("\nI'm child");
+				printf("\nMy parent ID %d\n",getppid());
+			}
+			else
+			{
+				int f1=fork();
+				if(f1==0)
+				{
+					printf("\nI'm sibling");
+					printf("\nMy parent ID %d\n",getppid());
+				}
+				else
+				{
+					printf("\nI'm Parent");
+					printf("\nMy ID %d\n",getpid());
+					printf("\nMy parent ID %d\n",getppid());
+				}
+			}
+			
+			return 0;
+		}
+
+Output:-
+		[2021ict62@fedora ~]$ touch Find_pid_ex1.c
+		[2021ict62@fedora ~]$ vi Find_pid_ex1.c
+		[2021ict62@fedora ~]$ gcc Find_pid_ex1.c -o Find_pid_ex1
+		[2021ict62@fedora ~]$ ./Find_pid_ex1
+
+		I'm Parent
+		My ID 12974
+
+		My parent ID 5191
+
+		I'm child
+		My parent ID 12974
+
+		I'm sibling
+		My parent ID 12974
