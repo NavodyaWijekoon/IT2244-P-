@@ -1,0 +1,227 @@
+1) Print Hello World
+
+Code:-
+
+		#include<stdio.h>
+		int main() 
+		{
+			printf("Hello World!");
+			return 0;
+		}
+
+Output:-
+
+		[2021ict62@fedora ~]$ touch Hello.c
+		[2021ict62@fedora ~]$ vi Hello.c
+		[2021ict62@fedora ~]$ gcc Hello.c -o Hello
+		[2021ict62@fedora ~]$ ./Hello
+		Hello World!
+		
+2) Integers
+
+Code:-
+		#include<stdio.h>
+		int main()
+		{
+			int age=10;
+			printf("%d",age);
+			
+			printf("size: %zu", sizeof(age));
+			
+			return 0;
+		}
+
+Output:-
+
+		[2021ict62@fedora ~]$ touch DataType.c
+		[2021ict62@fedora ~]$ vi DataType.c
+		[2021ict62@fedora ~]$ gcc DataType.c -o DataType
+		[2021ict62@fedora ~]$ ./DataType
+		10size: 4
+		
+3) Char
+
+Input:-
+		#include<stdio.h>
+		int main()
+		{
+			char character='z';
+			printf("%c",character);	
+			printf("\n%d",character);
+			return 0;
+		}
+
+Output:-
+
+		[2021ict62@fedora ~]$ touch char.c
+		[2021ict62@fedora ~]$ vi char.c
+		[2021ict62@fedora ~]$ gcc char.c -o char
+		[2021ict62@fedora ~]$ ./char
+		z
+		122
+
+4) double
+
+Input:-
+		/* #include<stdio.h>
+		int main()
+		{
+			double number=12.45;
+			printf("%2flf",number);	
+			return 0;
+		}
+		*/
+		#include<stdio.h>
+		int main()
+		{
+			double number=12.45;
+			printf("%lf",number);	
+			return 0;
+		}
+
+Output:-
+		[2021ict62@fedora ~]$ touch double.c
+		[2021ict62@fedora ~]$ vi double.c
+		[2021ict62@fedora ~]$ gcc double.c -o double
+		[2021ict62@fedora ~]$ ./double.c
+		-bash: ./double.c: Permission denied
+		[2021ict62@fedora ~]$ ./double
+		12.450000
+
+5) float
+
+Input:-
+		#include<stdio.h>
+		int main()
+		{
+			float number=10.9f;
+			printf("%f",number);	
+			printf("\n%.1f",number);
+			return 0;
+		}
+
+Output:-
+
+		[2021ict62@fedora ~]$ touch float.c
+		[2021ict62@fedora ~]$ vi float.c
+		[2021ict62@fedora ~]$ gcc float.c -o float
+		[2021ict62@fedora ~]$ ./float
+		10.900000
+		10.9
+
+6) variables
+
+Code:-
+		#include<stdio.h>
+		int main()
+		{
+			int age=25;
+			printf("%d",age);
+			return 0;
+		}
+
+Output:-
+
+		[2021ict62@fedora ~]$ touch variables.c
+		[2021ict62@fedora ~]$ vi variables.c
+		[2021ict62@fedora ~]$ gcc variables.c -o variables
+		[2021ict62@fedora ~]$ ./variables
+		25
+
+7) variables example
+
+Code:-
+
+		#include<stdio.h>
+		int main()
+		{
+			int first_number=25;
+			printf("First Number:%d",first_number);
+			
+			int second_number=first_number;
+			printf("Second Number:%d",second_number);
+			return 0;
+		}
+		
+Output:-
+		[2021ict62@fedora ~]$ touch variable01.c
+		[2021ict62@fedora ~]$ vi variable01.c
+		[2021ict62@fedora ~]$ gcc variable01.c -o variable01
+		[2021ict62@fedora ~]$ ./variable01
+		First Number:25Second Number:25
+
+8) Get input from User
+
+Input:-
+		#include<stdio.h>
+		int main()
+		{
+			int age;
+			printf("Enter your age: ");
+			scanf("%d", &age);
+			
+			printf("Age=%d",age);
+			return 0;
+		}
+
+Output:-
+		[2021ict62@fedora ~]$ touch InputFromUser.c
+		[2021ict62@fedora ~]$ vi InputFromUser.c
+		[2021ict62@fedora ~]$ gcc InputFromUser.c -o InputFromUser
+		[2021ict62@fedora ~]$ ./InputFromUser
+		Enter your age: 22
+		Age=22
+		
+9) Get different inputs
+
+Input:-
+
+		#include<stdio.h>
+		int main()
+		{
+			double number;
+			char alpha;
+
+			printf("Enter double input: ");
+			scanf("%lf",&number);
+			printf("\nYour double input is:%lf",number);
+
+			printf("Enter char input:");
+			scanf(" %c",&alpha);
+			printf("\nYour char input is:%c",alpha);
+
+			return 0;
+		}
+
+Output:-
+
+		[2021ict62@fedora ~]$ touch DifferentInputs.c
+		[2021ict62@fedora ~]$ vi DifferentInputs.c
+		[2021ict62@fedora ~]$ gcc DifferentInputs.c -o DifferentInputs
+		[2021ict62@fedora ~]$ ./DifferentInputs
+		Enter double input: 4.44
+
+		Your double input is:4.440000
+		Enter char input:N
+
+		Your char input is:N
+		
+//Take multiple inputs together
+Input:-
+
+		#include<stdio.h>
+		int main()
+		{
+			double number;
+			char alpha;
+			printf("Enter inputs: ");
+			scanf("%lf %c",&number,&alpha);
+			return 0;
+		}
+		
+Output:-
+
+		[2021ict62@fedora ~]$ vi DifferentInputs.c
+		[2021ict62@fedora ~]$ gcc DifferentInputs.c -o DifferentInputs
+		[2021ict62@fedora ~]$ ./DifferentInputs
+		Enter inputs: 5.55 N
