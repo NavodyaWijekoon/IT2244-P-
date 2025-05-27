@@ -1,0 +1,104 @@
+Q1)
+cd %USERPROFILE%\Desktop
+mkdir CSC2244 Marks Exam
+
+cd CSC2244
+mkdir practical theory "exam papers"
+
+cd practical
+echo. > practical.docx
+echo. > practical.pptx
+
+cd..\theory
+echo Theory Text > theory.txt
+echo. > theory.docx
+echo. > theory.pptx
+
+cd "..\exam papers"
+echo Theory Text > theory.txt
+echo. > exam.docx
+echo. > exam.pptx
+
+cd %USERPROFILE%\Desktop
+
+echo. > "ICAE Marks.xlsx"
+echo. > "Final Exam Marks.xlsx"
+
+move "ICAE Marks.xlsx"
+move "Final Exam Marks.xlsx"
+
+xcopy /E /I Marks Exam\Marks
+attri +h Exam
+
+------------------------------------------
+Q2)
+
+Code:-
+
+		awk -F, 'NR==1 || $4 > 3.5' Data.csv
+
+		awk -F, 'NR>1 {sum+=$4; count++} END {if (count > 0) print "Average GPA: ", sum/count}' Data.csv
+		
+Output:-
+
+		[2021ict62@fedora ~]$ touch Data.csv
+		[2021ict62@fedora ~]$ vi Data.csv
+		[2021ict62@fedora ~]$ chmod 777 Data.csv
+		[2021ict62@fedora ~]$ more Data.csv
+		Name,Age,Department,GPA
+		John,22,Physicalscience,3.5
+		Priya,21,Environmentscience,3.7
+		Meera,22,IT,3.1
+		Carol,23,Physicalscience,3.99
+		David,21,IT,3.98
+		Riya,22,Physicalscience,3.6
+		Rahman,21,Environmentscience,3.7
+		Rose,22,IT,2
+		Anna,23,Physicalscience,3.78
+		Riyas,21,IT,3.76
+
+		[2021ict62@fedora ~]$ awk -F, 'NR==1 || $4 > 3.5' Data.csv
+		Name,Age,Department,GPA
+		Priya,21,Environmentscience,3.7
+		Carol,23,Physicalscience,3.99
+		David,21,IT,3.98
+		Riya,22,Physicalscience,3.6
+		Rahman,21,Environmentscience,3.7
+		Anna,23,Physicalscience,3.78
+		Riyas,21,IT,3.76
+		
+		[2021ict62@fedora ~]$ awk -F, 'NR>1 {sum+=$4; count++} END {if (count > 0) print "Average GPA: ", sum/count}' Data.csv
+		Average GPA:  3.19182
+
+------------------------------------------
+Q3)
+
+Code:-
+
+		echo "Enter String_1: " 
+		read str1
+		echo "Enter String_2: " 
+		read str2
+
+		length1=${#str1}
+		length2=${#str2}
+
+		if [ $length1 -gt $length2 ]; then
+			echo "$str1 is larger than $str2"
+		elif [ $length2 -gt $length1 ]; then
+			echo "$str2 is larger than $str1"
+		else
+			echo "Both are same...!"
+		fi
+		
+Output:-
+		[2021ict62@fedora ~]$ touch Q3.sh
+		[2021ict62@fedora ~]$ vi Q3.sh
+		[2021ict62@fedora ~]$ chmod 777 Q3.sh
+		[2021ict62@fedora ~]$ ./Q3.sh
+		Enter String_1:
+		Apple
+		Enter String_2:
+		Banana
+		Banana is larger than Apple
+
